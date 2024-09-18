@@ -581,26 +581,26 @@ const storeNames = [
             <TableBody>
               {users.map((person) => (
                 <StyledTableRow key={person.UserID}>
-                  <StyledTableCell>
-                    <div className="flex items-center space-x-2">
-                      <img
-                        src={person.ProfileImage}
-                        alt="Profile"
-                        className="h-14 w-14 rounded-full object-cover"
-                      />
-                      <span>{person.FirstName}</span>
-                      <span>{person.LastName}</span>
-                    </div>
-                  </StyledTableCell>
-                  <StyledTableCell>{person.Email}</StyledTableCell>
+                <StyledTableCell className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+  <div className="flex flex-col sm:flex-row items-center sm:space-x-2 space-y-2 sm:space-y-0 w-full">
+    <img
+      src={person.ProfileImage}
+      alt="Profile"
+      className="h-14 w-14 rounded-full object-cover"
+    />
+    <div className="flex flex-col sm:flex-row sm:space-x-2  w-full md:pr-8 lg:pr-8">
+      <span className="truncate">{person.FirstName}</span>
+      <span className="truncate">{person.LastName}</span>
+    </div>
+  </div>
+</StyledTableCell>
+ 
+<StyledTableCell className="whitespace-nowrap max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl overflow-hidden text-ellipsis">
+  {person.Email}
+</StyledTableCell>
+ 
                   <StyledTableCell>{person.PhoneNumber}</StyledTableCell>
-                  {/* <StyledTableCell>
-                    {person.Address?.AddressLine1}
-                    {person.Address?.AddressLine2 && `, ${person.Address.AddressLine2}`}
-                    <br />
-                    {person.Address?.CityID}, {person.Address?.StateID}, {person.Address?.ZipCode}
-                  </StyledTableCell> */}
-                   {/* <StyledTableCell>{person.RoleID}</StyledTableCell> */}
+                  
                    <StyledTableCell>
   {
     (() => {
